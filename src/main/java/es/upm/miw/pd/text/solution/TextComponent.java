@@ -7,10 +7,11 @@ public abstract class TextComponent {
 	
 	public abstract void remove(TextComponent component);
 	
-	public abstract boolean isCharacter();
+	protected abstract boolean isCharacter();
 	
 	public abstract void print();
 	
+	public abstract String toString(boolean UpperCase);
 	
 
 }

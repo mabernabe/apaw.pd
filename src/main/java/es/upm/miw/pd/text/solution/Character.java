@@ -23,6 +23,16 @@ public class Character extends TextComponent {
 	public boolean isCharacter() {
 		return true;
 	}
+
+	@Override
+	public String toString( boolean upperCase) {
+		String ret = String.valueOf(value);
+		if (upperCase == true) {
+			ret = ret.toUpperCase(); 
+		}
+		return ret;
+			
+	}
 	
 	
 

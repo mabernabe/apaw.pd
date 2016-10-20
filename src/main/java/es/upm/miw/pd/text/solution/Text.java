@@ -4,39 +4,49 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Text extends TextComponent{
-			
-			private List<TextComponent> component;
-			
-			public void TextComponent() {
-				component = new ArrayList<TextComponent>();
-			}
 
-			@Override
-			public void add(TextComponent component) {
-				if (component.isCharacter() == true) {
-					throw new UnsupportedOperationException("Forbidden operation... ");
-				}
-				else {
-					component.add(component);
-				}
-			}
+	private List<TextComponent> components;
 
-			@Override
-			public void remove(TextComponent component) {
-				component.remove(component);		
-			}
+	public Text() {
+		components = new ArrayList<TextComponent>();
+	}
 
-			@Override
-			public void print() {
-				for (TextComponent component : component) {
-					component.print();
-				}
-				
-			}
+	@Override
+	public void add(TextComponent component) {
+		if (component.isCharacter() == true) {
+			throw new UnsupportedOperationException("Forbidden operation... ");
+		}
+		else {
+			components.add(component);
+		}
+	}
 
-			@Override
-			public boolean isCharacter() {
-				return true;
-			}
+	@Override
+	public void remove(TextComponent component) {
+		components.remove(component);		
+	}
+
+	@Override
+	public void print() {
+		for (TextComponent component : components) {
+			component.print();
+		}
+	}
+	
+
+	@Override
+	public String toString(boolean upperCase) {
+		String ret = "";
+		for (TextComponent component : components) {
+			ret+=component.toString(upperCase);
+		}
+		ret += "---o---\n";
+		return ret;
+	}	
+
+	@Override
+	public boolean isCharacter() {
+		return false;
+	}
 
 }
